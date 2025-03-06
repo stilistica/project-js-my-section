@@ -4,17 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reviews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" crossorigin src="/project-js-my-section/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/project-js-my-section/assets/index-ClhKy2Jr.css">
+    <link rel="modulepreload" crossorigin href="/project-js-my-section/assets/vendor-D-JDxJ7W.js">
+    <link rel="stylesheet" crossorigin href="/project-js-my-section/assets/vendor-Be9b3THL.css">
+    <link rel="stylesheet" crossorigin href="/project-js-my-section/assets/index-ji-iU2Um.css">
   </head>
   <body>
-
     <main>
-      <!-- Loads the specified .html file -->
-
+      <section>
+        <h2 class="title-section">REVIEWS</h2>
+        <div class="reviews-container">
+          <div class="swiper can-see-reviews">
+            <ul class="swiper-wrapper reviews-list"></ul>
+          </div>
+          <div class="reviews-buttons-center">
+            <div class="reviews-buttons-container">
+              <div tabindex="0" disabled class="swiper-button-prev reviews-button">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M26.6665 16H5.33318" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M13.3335 24L5.3335 16L13.3335 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div tabindex="0" class="swiper-button-next reviews-button">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.3335 16H26.6668" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M18.6665 8L26.6665 16L18.6665 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="reviews-error hidden">Not found</p>
+      </section>
     </main>
-
-
 
   </body>
 </html>
