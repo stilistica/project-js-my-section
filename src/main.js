@@ -3,10 +3,13 @@ import { renderReviews } from "./render-li.js";
 import Swiper from 'swiper/bundle';
 import 'swiper/css';
 
+const reviewsContainer = document.querySelector('.reviews-container')
 const reviewsList = document.querySelector('.reviews-list');
 const notFoundMes = document.querySelector('.reviews-error');
 const btnPrev = document.querySelector('.swiper-button-prev');
-const btnNext = document.querySelector('.swiper-button-next')
+const btnNext = document.querySelector('.swiper-button-next');
+
+let isError = false;
 
 document.addEventListener('DOMContentLoaded', async () => {
 	try {
@@ -14,6 +17,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 		console.log(result);
 		if (!result || result.length === 0 ) {
 			notFoundMes.classList.remove('hidden');
+			notFoundMes.classList.add('css-err-mes');
+			btnNext.setAttribute('disabled', 'true');
+			isError = true;
 			return;
 		}
 		reviewsList.innerHTML = renderReviews(result);
@@ -34,8 +40,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 			mousewheel: { // взаэмодія через мишку
 				invert: true,
 			},
-			// resizeObserver: true,
-			setWrapperSize: true, // автоматично встановлює розиір слайду так шоб він відповідам всім слайдам
+			resizeObserver: true,
+			// setWrapperSize: true, // автоматично встановлює розиір слайду так шоб він відповідам всім слайдам
 			slidesPerView: 1,
       breakpoints: {
         768: {
@@ -48,22 +54,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 		});
 
 		function updateButtonSlider() {
-			if (swiper.isBeginning) {
-				btnPrev.setAttribute('disabled', 'true');
-			} else {
-				btnPrev.removeAttribute('disabled');
-			}
-			if (swiper.isEnd) {
-				btnNext.setAttribute('disabled', 'true');
-			} else {
-				btnNext.removeAttribute('disabled');
-			}
+			btnPrev.toggleAttribute('disabled', swiper.isBeginning);
+			btnNext.toggleAttribute('disabled', swiper.isEnd);
 		}
 
 		swiper.on('slideChange', updateButtonSlider);
 
-		updateButtonState();
+		updateButtonSlider();
 	} catch (error) {
+		isError = true;
 		console.error(error);
 	}
-})
+});
+
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		if (isError && entry.isIntersecting) {
+			alert('Виникла помилка, спробуйте трохи пізніше')
+		}
+	})
+}, { threshold: 0.1 });
+
+observer.observe(reviewsContainer);
