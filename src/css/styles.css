@@ -6,20 +6,28 @@
 */
 /* Common styles */
 @import url('./reset.css');
-@import url('./container.css');
 
 /* Sections style */
+
+/* Styles for Mobile devices */
 
 body {
   background-color: #1c1d20;
   color: white;
 }
-
-
 .hidden {
   display: none;
 }
-
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.see {
+  width: 100%;
+  height: 2000px;
+}
 .title-section {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 600;
@@ -37,12 +45,11 @@ body {
   width: 100%;
 }
 .review-card {
-  max-width: 296px;
-  min-height: 238px;
+  max-width: 295px;
+  min-height: 286px;
   padding: 32px 24px;
   border: 1px solid rgba(250, 250, 250, 0.2);
   border-radius: 20px;
-  padding: 32px 24px;
 }
 .review-card img {
   border-radius: 10px;
@@ -50,9 +57,9 @@ body {
   height: 48px;
   margin-bottom: 32px;
 }
-/* .review-info {
-  min-width: 284px; 
-} */
+.review-info {
+  max-width: 295px;
+}
 .review-info h3 {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 600;
@@ -81,7 +88,7 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: row;
-  gap: 20px;
+  gap: 12px;
 }
 .reviews-button {
   display: flex;
@@ -91,16 +98,68 @@ body {
   color: rgba(250, 250, 250, 0.5);
   background-color: #1c1d20;
   border-radius: 60px;
-  /* padding: 18px; */
-  width: 68px;
-  height: 68px;
+  width: 52px;
+  height: 52px;
   cursor: pointer;
+}
+.reviews-button svg {
+  width: 24px;
+  height: 24px;
 }
 .reviews-button:hover {
   background-color: #242528;
 }
-.swiper-button-prev[disabled], .swiper-button-next[disabled] {
+.swiper-button-prev[disabled],
+.swiper-button-next[disabled] {
   outline: 1px solid rgba(250, 250, 250, 0.2);
   color: rgba(250, 250, 250, 0.2);
   cursor: not-allowed;
+}
+.css-err-mes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: rgba(250, 250, 250, 0.4);
+  border: 1px solid rgba(250, 250, 250, 0.2);
+  border-radius: 20px;
+  margin-bottom: 32px;
+}
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 32px;
+  }
+  .review-card {
+    max-width: 296px;
+  }
+  .reviews-buttons-container {
+    gap: 20px;
+  }
+  .reviews-button {
+    width: 68px;
+    height: 68px;
+  }
+  .reviews-button svg {
+    width: 32px;
+    height: 32px;
+    
+  }
+}
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1440px;
+    padding: 32px;
+  }
+  .review-card {
+    max-width: 284px;
+  }
 }
