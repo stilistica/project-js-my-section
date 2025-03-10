@@ -131,6 +131,67 @@ body {
   border-radius: 20px;
   margin-bottom: 32px;
 }
+
+/* ---------------------- */
+.covers-container {
+  padding: 0;
+}
+.title-covers {
+  visibility: hidden;
+}
+.content {
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.marquee {
+  background-image: url('/img/elements_vectors.png');
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  height: 508px;
+  overflow: hidden;
+}
+
+
+.marquee__inner {
+  display: flex;
+  transform: rotate(16deg);
+  gap: 25px;
+  width: 200%; 
+}
+
+.marquee__line {
+  flex-shrink: 0;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 282px;
+  height: 162px;
+}
+.marquee__line.covers-start-animation {
+  white-space: nowrap;
+  animation-name: marqueeLine;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes marqueeLine {
+  from {
+    transform: translateX(-25%);
+  }
+
+  to {
+    transform: translateX(-100%); 
+
+  }
+}
+
+/* ---------------------- */
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
   .container {
@@ -150,16 +211,51 @@ body {
   .reviews-button svg {
     width: 32px;
     height: 32px;
-    
   }
+  /* ------------- */
+  .covers-container {
+    padding: 0;
+  }
+  .marquee {
+    background-size: 150%;
+    background-position: center;
+  
+    height: 960px;
+  }
+  .marquee__inner {
+    gap: 40px;
+  }
+  .marquee__line {
+    margin-bottom: 60px;
+  }
+  .marquee__line {
+    width: 544px;
+    height: 314px;
+  }
+
 }
 /* Styles for Desktop devices */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
     padding: 32px;
   }
   .review-card {
     max-width: 284px;
+  }
+
+  /* ----------- */
+  .covers-container {
+    padding: 0;
+  }
+  .marquee__inner {
+    gap: 50px;
+  }
+  .marquee__line {
+    margin-bottom: 80px;
+  }
+  .marquee__line {
+    width: 544px;
+    height: 314px;
   }
 }
