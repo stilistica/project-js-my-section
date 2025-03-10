@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
       },
 		});
+		
 
 		function updateButtonSlider() {
 			btnPrev.toggleAttribute('disabled', swiper.isBeginning);
